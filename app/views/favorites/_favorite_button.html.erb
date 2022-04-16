@@ -1,13 +1,11 @@
-<% unless current_user == micropost.user %>
-  <% if current_user.favorite?(micropost.user) %>
-    <%= form_with(model: current_user.favorites.find_by(micropost_id: micropost.id), method: :delete) do |f| %>
-      <%= hidden_field_tag :micropost_id, micropost.id %>
-      <%= f.submit 'Remove favorites', class: 'btn btn-danger w-100' %>
-    <% end %>
-  <% else %>
-    <%= form_with(model: current_user.favorites.build) do |f| %>
-      <%= hidden_field_tag :micropost_id, micropost.id %>
-      <%= f.submit 'Favorite', class: 'btn btn-primary w-100' %>
-    <% end %>
+<% if current_user.favorite?(micropost.user) %>
+  <%= form_with(model: current_user.favorites.find_by(micropost_id: micropost.id), method: :delete) do |f| %>
+    <%= hidden_field_tag :micropost_id, micropost.id %>
+    <%= f.submit 'Remove favorites', class: 'btn btn-danger w-60' %>
+  <% end %>
+<% else %>
+  <%= form_with(model: current_user.favorites.build) do |f| %>
+    <%= hidden_field_tag :micropost_id, micropost.id %>
+    <%= f.submit 'Favorite', class: 'btn btn-primary w-60' %>
   <% end %>
 <% end %>
