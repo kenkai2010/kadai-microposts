@@ -10,9 +10,9 @@
           <div>
             <p><%= micropost.content %></p>
           </div>
-          <div class="btn-group">
+          <div class = "d-flex flex-row bd-highlight mb-3">
             <% if current_user == micropost.user %>
-              <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger w-60' %>
+              <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
             <% end %>
             <%= render 'favorites/favorite_button', micropost: micropost %>
           </div>
